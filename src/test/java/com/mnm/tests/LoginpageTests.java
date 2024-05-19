@@ -1,18 +1,22 @@
 package com.mnm.tests;
 
+import com.mnm.driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
-public class LoginpageTests extends BaseTests{
+public final class LoginpageTests extends BaseTests{
 
+    private LoginpageTests(){
+
+    }
     @Test
     public void test1(){
-        driver.findElement(By.name("q")).sendKeys("Automation", Keys.ENTER);
+        Driver.driver.findElement(By.name("q")).sendKeys("Automation", Keys.ENTER);
     }
-
+/*
     @Test
     public void test2(){
-        driver.findElement(By.name("q")).sendKeys("Cars", Keys.ENTER);
-    }
+        Driver.driver.findElement(By.name("q")).sendKeys("Cars", Keys.ENTER);
+    }*/
 }
