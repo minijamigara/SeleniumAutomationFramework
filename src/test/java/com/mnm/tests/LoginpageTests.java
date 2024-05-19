@@ -1,6 +1,6 @@
 package com.mnm.tests;
 
-import com.mnm.driver.Driver;
+import com.mnm.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
@@ -12,7 +12,7 @@ public final class LoginpageTests extends BaseTests{
     }
     @Test
     public void test1(){
-        Driver.driver.findElement(By.name("q")).sendKeys("Automation", Keys.ENTER);
+        DriverManager.getDriver().findElement(By.name("q")).sendKeys("Automation", Keys.ENTER);
     }
 /*
     @Test
