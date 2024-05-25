@@ -1,9 +1,11 @@
 package com.mnm.driver;
 
 import com.mnm.constants.FrameworkConstants;
+import com.mnm.utills.ReadPropertyFile;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public final class Driver {
@@ -11,16 +13,13 @@ public final class Driver {
     private Driver(){
 
     }
-    private static WebDriver driver;
 
-
-    public static void initDriver(){
-        if (Objects.isNull(driver)){
+    public static void initDriver() throws Exception {
+        if (Objects.isNull(DriverManager.getDriver())){
             System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
-            driver = new ChromeDriver();
             System.out.println(DriverManager.getDriver());
-            DriverManager.setDriver(driver);
-            DriverManager.getDriver().get("https://google.com");
+            DriverManager.setDriver(new ChromeDriver());
+            DriverManager.getDriver().get(ReadPropertyFile.getValue("URL"));
         }
     }
     public static void quitDriver(){
